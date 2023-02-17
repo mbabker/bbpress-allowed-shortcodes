@@ -47,3 +47,6 @@ require plugin_dir_path( BBPRESS_ALLOWED_SHORTCODES_PLUGIN_FILE ) . 'includes/fu
 require plugin_dir_path( BBPRESS_ALLOWED_SHORTCODES_PLUGIN_FILE ) . 'includes/class-bbpress-allowed-shortcodes-autoloader.php';
 
 BBPress_Allowed_Shortcodes_Autoloader::register();
+
+// Initialize the plugin instance and resources
+BBPress_Allowed_Shortcodes_Plugin::boot();
