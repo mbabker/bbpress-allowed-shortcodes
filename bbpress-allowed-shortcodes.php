@@ -40,6 +40,9 @@ if ( ! defined( 'BBPRESS_ALLOWED_SHORTCODES_VERSION' ) ) {
 	define( 'BBPRESS_ALLOWED_SHORTCODES_VERSION', '0.1.0' );
 }
 
+// Include the functions files
+require plugin_dir_path( BBPRESS_ALLOWED_SHORTCODES_PLUGIN_FILE ) . 'includes/functions.php';
+
 // Include the autoloader and initialize it
 require plugin_dir_path( BBPRESS_ALLOWED_SHORTCODES_PLUGIN_FILE ) . 'includes/class-bbpress-allowed-shortcodes-autoloader.php';
 
