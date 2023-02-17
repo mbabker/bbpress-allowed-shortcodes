@@ -27,5 +27,6 @@
     </rule>
 
     <!-- Define files to be checked -->
-    <!-- <file>plugin.php</file> -->
+    <file>includes/</file>
+    <file>bbpress-allowed-shortcodes.php</file>
 </ruleset>
