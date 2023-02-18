@@ -4,7 +4,7 @@
  * Plugin Name: bbPress Allowed Shortcodes
  * Plugin URI: https://michaels.website
  * Update URI: https://michaels.website
- * Description: WordPress plugin adding support for shortcodes to bbPress content, based on the bbPress2 shortcode whitelist (https://wordpress.org/plugins/bbpress2-shortcode-whitelist/) plugin
+ * Description: WordPress plugin adding support for shortcodes to bbPress content, based on the <a href="https://wordpress.org/plugins/bbpress2-shortcode-whitelist/">bbPress2 shortcode whitelist plugin</a>.
  * Version: 1.0.0
  * Author: Michael Babker
  * Author URI: https://michaels.website
