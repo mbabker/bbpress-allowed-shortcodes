@@ -35,8 +35,9 @@ final class BBPress_Allowed_Shortcodes_Frontend {
 			// Allow shortcodes in comments
 			add_filter( 'get_comment_text', 'bbpress_allowed_shortcodes_do_shortcode' );
 
-			// Allow shortcodes in bbPress replies
+			// Allow shortcodes in bbPress content
 			add_filter( 'bbp_get_reply_content', 'bbpress_allowed_shortcodes_do_shortcode' );
+			add_filter( 'bbp_get_topic_content', 'bbpress_allowed_shortcodes_do_shortcode' );
 
 			// Allow shortcodes in BuddyPress content
 			add_filter( 'bp_get_the_topic_post_content', 'bbpress_allowed_shortcodes_do_shortcode' );
