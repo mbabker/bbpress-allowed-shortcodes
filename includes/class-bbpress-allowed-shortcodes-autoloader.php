@@ -10,7 +10,6 @@ if ( ! defined( 'WPINC' ) ) {
  * Adapted from WooCommerce' WC_Autoloader
  */
 final class BBPress_Allowed_Shortcodes_Autoloader {
-
 	/**
 	 * Singleton instance of the plugin's autoloader
 	 */
@@ -29,7 +28,7 @@ final class BBPress_Allowed_Shortcodes_Autoloader {
 	/**
 	 * Autoloader constructor.
 	 *
-	 * This constructor is private to force instantiation through the register method.
+	 * This constructor is private to force instantiation through the {@see register} method.
 	 *
 	 * @param string $include_path Path to the includes directory.
 	 */
@@ -71,7 +70,7 @@ final class BBPress_Allowed_Shortcodes_Autoloader {
 		$class = strtolower( $class );
 
 		// Only attempt to load classes if they look like they come from this plugin
-		if ( 0 !== strpos( $class, 'bbpress_allowed_shortcodes_' ) ) {
+		if ( strpos( $class, 'bbpress_allowed_shortcodes_' ) !== 0 ) {
 			return;
 		}
 
@@ -99,5 +98,4 @@ final class BBPress_Allowed_Shortcodes_Autoloader {
 			include_once $path;
 		}
 	}
-
 }

@@ -10,12 +10,16 @@ if ( ! defined( 'WPINC' ) ) {
  * Responsible for initializing the plugin and its resources.
  */
 final class BBPress_Allowed_Shortcodes_Plugin {
-
 	/**
 	 * Singleton instance of the plugin
 	 */
 	private static ?BBPress_Allowed_Shortcodes_Plugin $instance = null;
 
+	/**
+	 * Plugin constructor.
+	 *
+	 * This constructor is private to force instantiation through the {@see boot} method.
+	 */
 	public function __construct() {
 		$this->boot_integration_classes();
 	}
@@ -47,6 +51,8 @@ final class BBPress_Allowed_Shortcodes_Plugin {
 	}
 
 	private function boot_integration_classes(): void {
+		if ( is_admin() ) {
+			BBPress_Allowed_Shortcodes_Admin::boot();
+		}
 	}
-
 }
