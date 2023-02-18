@@ -52,6 +52,7 @@ final class BBPress_Allowed_Shortcodes_Plugin {
 
 	private function boot_integration_classes(): void {
 		BBPress_Allowed_Shortcodes_Activation::boot();
+		BBPress_Allowed_Shortcodes_Frontend::boot();
 
 		if ( is_admin() ) {
 			BBPress_Allowed_Shortcodes_Admin::boot();
