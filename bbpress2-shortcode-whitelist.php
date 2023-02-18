@@ -31,9 +31,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 define('BBPSCWL_PATH', WP_CONTENT_DIR.'/plugins/'.plugin_basename(dirname(__FILE__)) );
 
-//Admin options
-include(BBPSCWL_PATH.'/bbpress2-shortcode-whitelist-admin.php');
-
 //Functions
 include(BBPSCWL_PATH.'/bbpress2-shortcode-whitelist-functions.php');
 
