@@ -32,6 +32,8 @@ final class BBPress_Allowed_Shortcodes_Admin {
 
 			add_action( 'admin_menu', [ self::$instance, 'register_plugin_options_page' ] );
 			add_action( 'admin_init', [ self::$instance, 'register_plugin_settings' ] );
+			add_filter( 'plugin_action_links', [ self::$instance, 'modify_plugin_action_links' ], 10, 2 );
+			add_filter( 'network_admin_plugin_action_links', [ self::$instance, 'modify_plugin_action_links' ], 10, 2 );
 		}
 	}
 
@@ -50,6 +52,27 @@ final class BBPress_Allowed_Shortcodes_Admin {
 		return self::$instance;
 	}
 
+	/**
+	 * Adds extra links to the plugin's listing.
+	 *
+	 * @param string[] $actions     An array of plugin action links.
+	 * @param string   $plugin_file Path to the plugin file relative to the plugins directory.
+	 *
+	 * @return string[] The filtered list of action links.
+	 */
+	public function modify_plugin_action_links( array $actions, string $plugin_file ): array {
+		// Return normal links if not BuddyPress.
+		if ( plugin_basename( BBPRESS_ALLOWED_SHORTCODES_PLUGIN_FILE ) !== $plugin_file ) {
+			return $actions;
+		}
+
+		return array_merge(
+			$actions,
+			[
+				'settings' => '<a href="' . esc_url( admin_url( 'options-general.php?page=bbpress-allowed-shortcodes' ) ) . '">' . esc_html__( 'Settings', 'bbpress-allowed-shortcodes' ) . '</a>',
+			],
+		);
+	}
 
 	/**
 	 * Registers the plugin's options page.
