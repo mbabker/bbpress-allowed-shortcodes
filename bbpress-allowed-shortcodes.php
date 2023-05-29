@@ -14,7 +14,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
  * Requires at least: 6.1
  * Requires PHP: 7.4
- * Tested up to: 6.1
+ * Tested up to: 6.2
  */
 
 // If this file is called directly, abort.
