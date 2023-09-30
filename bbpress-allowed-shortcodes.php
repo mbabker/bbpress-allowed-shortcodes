@@ -5,7 +5,7 @@
  * Plugin URI: https://michaels.website
  * Update URI: https://michaels.website
  * Description: WordPress plugin adding support for shortcodes to bbPress content, based on the <a href="https://wordpress.org/plugins/bbpress2-shortcode-whitelist/">bbPress2 shortcode whitelist plugin</a>.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Michael Babker
  * Author URI: https://michaels.website
  * Text Domain: bbpress-allowed-shortcodes
@@ -14,7 +14,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
  * Requires at least: 6.1
  * Requires PHP: 7.4
- * Tested up to: 6.2
+ * Tested up to: 6.3
  */
 
 // If this file is called directly, abort.
@@ -37,7 +37,7 @@ if ( ! defined( 'BBPRESS_ALLOWED_SHORTCODES_VERSION' ) ) {
 	 *
 	 * @var string
 	 */
-	define( 'BBPRESS_ALLOWED_SHORTCODES_VERSION', '1.0.0' );
+	define( 'BBPRESS_ALLOWED_SHORTCODES_VERSION', '1.1.0' );
 }
 
 // Include the functions files
@@ -48,5 +48,4 @@ require plugin_dir_path( BBPRESS_ALLOWED_SHORTCODES_PLUGIN_FILE ) . 'includes/cl
 
 BBPress_Allowed_Shortcodes_Autoloader::register();
 
-// Initialize the plugin instance and resources
-BBPress_Allowed_Shortcodes_Plugin::boot();
+add_action( 'plugins_loaded', [ BBPress_Allowed_Shortcodes_Plugin::class, 'boot' ] );
