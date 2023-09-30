@@ -16,11 +16,11 @@ if ( ! defined( 'WPINC' ) ) {
 function bbpress_allowed_shortcodes_do_shortcode( string $content, bool $ignore_html = false ): string {
 	add_filter( 'pre_do_shortcode_tag', 'bbpress_allowed_shortcodes_pre_do_shortcode_tag', 1, 4 );
 
-	$content = do_shortcode( $content, $ignore_html );
-
-	remove_filter( 'pre_do_shortcode_tag', 'bbpress_allowed_shortcodes_pre_do_shortcode_tag', 1 );
-
-	return $content;
+	try {
+		return do_shortcode( $content, $ignore_html );
+	} finally {
+		remove_filter( 'pre_do_shortcode_tag', 'bbpress_allowed_shortcodes_pre_do_shortcode_tag', 1 );
+	}
 }
 
 /**
