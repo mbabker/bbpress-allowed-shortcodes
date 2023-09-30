@@ -81,7 +81,7 @@ final class BBPress_Allowed_Shortcodes_Admin {
 		add_options_page(
 			__( 'bbPress Allowed Shortcodes', 'bbpress-allowed-shortcodes' ),
 			__( 'bbPress Allowed Shortcodes', 'bbpress-allowed-shortcodes' ),
-			'administrator',
+			'manage_options',
 			'bbpress-allowed-shortcodes',
 			[ $this, 'show_settings_page' ],
 		);
@@ -112,8 +112,8 @@ final class BBPress_Allowed_Shortcodes_Admin {
 	/**
 	 * Prints the allowed shortcodes list field.
 	 */
-	public function print_bbpress_allowed_shortcodes_list_field( array $args ): void {
-		echo sprintf(
+	public function print_bbpress_allowed_shortcodes_list_field(): void {
+		printf(
 			'<input type="text" id="bbpress_allowed_shortcodes_list" name="bbpress_allowed_shortcodes_list" class="regular-text code" value="%s" />',
 			esc_attr( get_option( 'bbpress_allowed_shortcodes_list', '' ) )
 		);
